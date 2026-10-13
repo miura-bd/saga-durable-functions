@@ -31,14 +31,14 @@ npm ci          # package-lock.json どおりに依存を入れます
 npm test        # 補償の実験 1〜3 とその対照（AWS 不要）
 ```
 
-5 件すべて pass になれば成功です（端末では ✔ 付きの形式、パイプや CI では `ok 1 - …` の形式で表示されます）。
+最後に `# pass 5` と `# fail 0` が出れば成功です（表示は `ok 1 - …` の形式です。環境によっては `✔` 付きの形式で表示されることもあります）。
 公式のテストランナー（`LocalDurableTestRunner`）でオーケストレータを本物のリプレイに乗せて流し、DynamoDB はインメモリに差し替えています。
 
 | テスト | 確かめること |
 |---|---|
 | 1 | 実験 1：補償スタックを保存していなくても、別の invocation で同じ中身に組み立て直される |
-| 2・3 | 実験 2：中止連絡の本体が再実行されても、冪等キーがあれば 1 回、なければ 2 回 |
-| 4・5 | 実験 3：補償の途中で失敗したとき、`compensable` の目印があればやり直さず失敗させ、無視すると「準備の失敗」扱いになる |
+| 2・3 | 実験 2 とその対照：中止連絡の本体が再実行されても、冪等キーがあれば 1 回、なければ 2 回 |
+| 4・5 | 実験 3 とその対照：補償の途中で失敗したとき、`compensable` の目印があればやり直さず失敗させ、無視すると「準備の失敗」扱いになる |
 
 ローカルのランナーでは `process.exit` で落ちた invocation からの再開までは再現できないため、実験 1 の invocation の区切りは開催可否のコールバック待ちで、実験 2 の本体の再実行は step のリトライで作っています。
 補償のリトライ待ちなどを実時間で待つので、全体で十数秒かかります。
@@ -142,9 +142,14 @@ ARN=$(grep '^ARN=' "run-$EID.log" | cut -d= -f2-)
 ## 結果の確認
 
 ```bash
-# invocation の数（落とさない場合は 2、実験 1・2 は 3。うち 1 回が異常終了）
+# invocation の数（落とさない場合は 2、実験 1・2 は 3）
 aws lambda get-durable-execution-history --durable-execution-arn "$ARN" \
   --query "length(Events[?EventType=='InvocationCompleted'])"
+
+# そのうち異常終了した invocation の数（落とさない場合は 0、実験 1・2 は 1）
+# 異常終了は独立したイベントではなく、InvocationCompleted に Error が付く形で記録されます
+aws lambda get-durable-execution-history --durable-execution-arn "$ARN" \
+  --query "length(Events[?EventType=='InvocationCompleted' && InvocationCompletedDetails.Error!=null])"
 
 # 中止連絡が実際に送られた回数（実験 2 は 1、実験 2 の対照は 2）
 aws dynamodb get-item --table-name "$STATE_TABLE" \
