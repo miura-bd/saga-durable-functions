@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="560" viewBox="0 0 880 560" font-family="'Noto Sans CJK JP','Hiragino Sans',sans-serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#d93025"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5f6b7a"/></marker>
+  </defs>
+  <rect width="880" height="560" fill="#ffffff"/>
+  <text x="24" y="36" font-size="20" font-weight="700" fill="#1a1a2e">補償「中止連絡」の中で、どこで落ちるかで再開後の挙動が変わる</text>
+
+  <!-- 上段：fig1 の補償チェーン（中止のとき） -->
+  <text x="24" y="70" font-size="12" fill="#5f6368">「今回の中止シナリオ」の図の右列（中止時の補償）を、実行順に横に並べたもの</text>
+  <g font-size="12" text-anchor="middle">
+    <rect x="24" y="82" width="160" height="38" rx="7" fill="#f1f3f4" stroke="#80868b" stroke-dasharray="4 3"/>
+    <text x="104" y="106" fill="#3c4043">販売停止を記録</text>
+    <rect x="214" y="78" width="200" height="46" rx="7" fill="#fce8e6" stroke="#d93025" stroke-width="2.5"/>
+    <text x="314" y="99" fill="#16191f" font-weight="700">① 配信先へ「中止します」</text>
+    <text x="314" y="115" fill="#5f6368" font-size="11">compensate_notify_partners</text>
+    <rect x="444" y="82" width="180" height="38" rx="7" fill="#fce8e6" stroke="#d93025"/>
+    <text x="534" y="106" fill="#3c4043">② 視聴ページを閉じる</text>
+    <rect x="654" y="82" width="200" height="38" rx="7" fill="#fce8e6" stroke="#d93025"/>
+    <text x="754" y="106" fill="#3c4043">③ 配信リソースを解放</text>
+  </g>
+  <g stroke="#d93025" stroke-width="1.6" marker-end="url(#ar)">
+    <line x1="184" y1="101" x2="212" y2="101"/>
+    <line x1="414" y1="101" x2="442" y2="101"/>
+    <line x1="624" y1="101" x2="652" y2="101"/>
+  </g>
+  <!-- 拡大の補助線 -->
+  <path d="M214,124 L40,168 M414,124 L840,168" stroke="#d93025" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+  <text x="314" y="146" font-size="11" fill="#d93025" text-anchor="middle">ここを拡大</text>
+
+  <!-- 中段：① の中身 -->
+  <rect x="40" y="168" width="800" height="118" rx="10" fill="#fffafa" stroke="#d93025" stroke-dasharray="5 4"/>
+  <text x="56" y="188" font-size="12" fill="#d93025">中止連絡の補償（1 つの step）が実行されるときの流れ</text>
+
+  <g font-size="13" text-anchor="middle" fill="#2b2f55">
+    <rect x="104" y="204" width="200" height="50" rx="8" fill="#eef2ff" stroke="#6b7cff" stroke-width="1.5"/>
+    <text x="204" y="225">配信先へ「中止します」を送る</text>
+    <text x="204" y="243" font-size="11" fill="#555">（副作用：外へ連絡が届く）</text>
+    <rect x="334" y="204" width="200" height="50" rx="8" fill="#eef2ff" stroke="#6b7cff" stroke-width="1.5"/>
+    <text x="434" y="225">冪等キーに「送信済み」を書く</text>
+    <text x="434" y="243" font-size="11" fill="#555">（送ったことの記録）</text>
+    <rect x="594" y="204" width="200" height="50" rx="8" fill="#e6f4ea" stroke="#2e9e5b" stroke-width="1.5"/>
+    <text x="694" y="225">step の結果を保存する</text>
+    <text x="694" y="243" font-size="11" fill="#555">（チェックポイント）</text>
+  </g>
+  <g stroke="#5f6b7a" stroke-width="1.6" marker-end="url(#ag)">
+    <line x1="304" y1="229" x2="332" y2="229"/>
+    <line x1="534" y1="229" x2="592" y2="229"/>
+  </g>
+  <!-- 落ちる位置 -->
+  <g font-size="12" font-weight="700" fill="#b00020" text-anchor="middle">
+    <g transform="translate(76,229)"><circle r="10" fill="#b00020"/><path d="M-4,-4 L4,4 M4,-4 L-4,4" stroke="#fff" stroke-width="2"/></g>
+    <text x="76" y="272">A</text>
+    <g transform="translate(564,229)"><circle r="10" fill="#b00020"/><path d="M-4,-4 L4,4 M4,-4 L-4,4" stroke="#fff" stroke-width="2"/></g>
+    <text x="564" y="272">B</text>
+    <g transform="translate(818,229)"><circle r="10" fill="#b00020"/><path d="M-4,-4 L4,4 M4,-4 L-4,4" stroke="#fff" stroke-width="2"/></g>
+    <text x="818" y="272">C</text>
+  </g>
+  <text x="836" y="302" font-size="11" fill="#5f6368" text-anchor="end">次の補償へ進む前</text>
+
+  <!-- 下段：結果 -->
+  <g>
+    <rect x="40" y="320" width="260" height="210" rx="10" fill="#f1fbf4" stroke="#2e9e5b" stroke-width="1.5"/>
+    <text x="60" y="348" font-size="15" font-weight="700" fill="#1b6b3a">A：送る前に落ちた</text>
+    <text x="60" y="376" font-size="13" fill="#204a30">まだ何も起きていないので、</text>
+    <text x="60" y="398" font-size="13" fill="#204a30">再開後にこの補償が</text>
+    <text x="60" y="420" font-size="13" fill="#204a30">ふつうに実行されるだけ。</text>
+    <text x="60" y="458" font-size="13" font-weight="700" fill="#1b6b3a">→ 二重連絡のリスクなし</text>
+    <text x="60" y="488" font-size="12" fill="#4a6b55">試すまでもないので実験しない</text>
+  </g>
+  <g>
+    <rect x="310" y="320" width="260" height="210" rx="10" fill="#fff6ec" stroke="#d98a1f" stroke-width="1.5"/>
+    <text x="330" y="348" font-size="15" font-weight="700" fill="#9a5b00">B：送ったあと、保存する前</text>
+    <text x="330" y="376" font-size="13" fill="#5c4418">連絡は届いたが step は未完了。</text>
+    <text x="330" y="398" font-size="13" fill="#5c4418">再開後に中止連絡の本体が</text>
+    <text x="330" y="420" font-size="13" fill="#5c4418">もう一度走る（at-least-once）。</text>
+    <text x="330" y="458" font-size="13" font-weight="700" fill="#9a5b00">→ 冪等キーが無いと二重連絡</text>
+    <text x="330" y="488" font-size="12" fill="#8a6522">実験 2 で確かめる</text>
+  </g>
+  <g>
+    <rect x="580" y="320" width="260" height="210" rx="10" fill="#eef4ff" stroke="#3a6bd8" stroke-width="1.5"/>
+    <text x="600" y="348" font-size="15" font-weight="700" fill="#1f4aa0">C：保存したあと、次の補償の前</text>
+    <text x="600" y="376" font-size="13" fill="#263b63">中止連絡の step は完了済み。</text>
+    <text x="600" y="398" font-size="13" fill="#263b63">再開時はリプレイで保存結果を</text>
+    <text x="600" y="420" font-size="13" fill="#263b63">使い、次の補償から進む。</text>
+    <text x="600" y="458" font-size="13" font-weight="700" fill="#1f4aa0">→ 二重連絡のリスクなし</text>
+    <text x="600" y="488" font-size="12" fill="#45608f">実験 1 で確かめる</text>
+  </g>
+</svg>

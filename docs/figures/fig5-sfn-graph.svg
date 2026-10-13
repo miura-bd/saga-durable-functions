@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="830" viewBox="0 0 960 830" font-family="'Noto Sans CJK JP','Hiragino Sans',sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5f6b7a"/></marker><marker id="arc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker></defs>
+<rect width="960" height="830" fill="#ffffff"/>
+<text x="24" y="36" font-size="19" font-weight="700" fill="#1a1a2e">Step Functions 版のステートマシン定義</text>
+<circle cx="200" cy="70" r="13" fill="#f2f3f3" stroke="#5f6b7a" stroke-width="1.3"/>
+<text x="200" y="74" font-size="10" text-anchor="middle" fill="#0f141a">Start</text>
+<rect x="90.0" y="100.0" width="220" height="40" rx="6" fill="#f2f3f3" stroke="#8c8c94" stroke-width="1.3"/>
+<text x="200" y="118" font-size="13" text-anchor="middle" fill="#0f141a">Init</text>
+<text x="200" y="133" font-size="10" text-anchor="middle" fill="#656871">初期値を Assign</text>
+<rect x="90.0" y="165.0" width="220" height="40" rx="6" fill="#ffffff" stroke="#8c8c94" stroke-width="1.3"/>
+<text x="200" y="183" font-size="13" text-anchor="middle" fill="#0f141a">ReserveStreaming</text>
+<text x="200" y="198" font-size="10" text-anchor="middle" fill="#656871">1. 配信リソースを確保</text>
+<rect x="90.0" y="230.0" width="220" height="40" rx="6" fill="#ffffff" stroke="#8c8c94" stroke-width="1.3"/>
+<text x="200" y="248" font-size="13" text-anchor="middle" fill="#0f141a">OpenViewingPage</text>
+<text x="200" y="263" font-size="10" text-anchor="middle" fill="#656871">2. 視聴ページを公開</text>
+<rect x="90.0" y="295.0" width="220" height="40" rx="6" fill="#ffffff" stroke="#8c8c94" stroke-width="1.3"/>
+<text x="200" y="313" font-size="13" text-anchor="middle" fill="#0f141a">NotifyPartners</text>
+<text x="200" y="328" font-size="10" text-anchor="middle" fill="#656871">3. 配信先へ連絡</text>
+<rect x="90.0" y="370.0" width="220" height="40" rx="6" fill="#fff9cc" stroke="#a58b00" stroke-width="1.3"/>
+<text x="200" y="388" font-size="13" text-anchor="middle" fill="#0f141a">AwaitGoDecision</text>
+<text x="200" y="403" font-size="10" text-anchor="middle" fill="#656871">4. 開催か中止か（入力の cancel）</text>
+<path d="M200,83 L200,100.0" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
+<path d="M200,140.0 L200,165.0" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
+<path d="M200,205.0 L200,230.0" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
+<path d="M200,270.0 L200,295.0" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
+<path d="M200,335.0 L200,370.0" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
+<rect x="370.0" y="370.0" width="200" height="40" rx="6" fill="#ffffff" stroke="#8c8c94" stroke-width="1.3"/>
+<text x="470" y="388" font-size="13" text-anchor="middle" fill="#0f141a">StartStreaming</text>
+<text x="470" y="403" font-size="10" text-anchor="middle" fill="#656871">5. 配信開始（ピボット）</text>
+<path d="M310.0,390 L370,390" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
+<text x="318.0" y="384" font-size="11" fill="#5f6b7a">Default</text>
+<circle cx="470" cy="455" r="13" fill="#f2f3f3" stroke="#5f6b7a" stroke-width="1.3"/>
+<text x="470" y="459" font-size="10" text-anchor="middle" fill="#0f141a">End</text>
+<path d="M470,410.0 L470,442" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
+<rect x="90.0" y="455.0" width="220" height="40" rx="6" fill="#fff1e6" stroke="#c2410c" stroke-width="1.3"/>
+<text x="200" y="473" font-size="13" text-anchor="middle" fill="#0f141a">RecordCancellation</text>
+<text x="200" y="488" font-size="10" text-anchor="middle" fill="#656871">販売を止めて中止表示</text>
+<rect x="90.0" y="525.0" width="220" height="40" rx="6" fill="#ffffff" stroke="#8c8c94" stroke-width="1.3"/>
+<text x="200" y="543" font-size="13" text-anchor="middle" fill="#0f141a">CompensateNotifyPartners</text>
+<text x="200" y="558" font-size="10" text-anchor="middle" fill="#656871">① 配信先へ中止連絡</text>
+<rect x="90.0" y="595.0" width="220" height="40" rx="6" fill="#ffffff" stroke="#8c8c94" stroke-width="1.3"/>
+<text x="200" y="613" font-size="13" text-anchor="middle" fill="#0f141a">CloseViewingPage</text>
+<text x="200" y="628" font-size="10" text-anchor="middle" fill="#656871">② 視聴ページを閉じる</text>
+<rect x="90.0" y="665.0" width="220" height="40" rx="6" fill="#ffffff" stroke="#8c8c94" stroke-width="1.3"/>
+<text x="200" y="683" font-size="13" text-anchor="middle" fill="#0f141a">ReleaseStreaming</text>
+<text x="200" y="698" font-size="10" text-anchor="middle" fill="#656871">③ 配信リソースを解放</text>
+<path d="M200,410.0 L200,455.0" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
+<text x="208" y="436.0" font-size="11" fill="#5f6b7a">$cancel = true</text>
+<path d="M200,495.0 L200,525.0" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
+<path d="M200,565.0 L200,595.0" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
+<path d="M200,635.0 L200,665.0" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
+<rect x="100.0" y="740.0" width="200" height="40" rx="6" fill="#eaf7ee" stroke="#2e9e5b" stroke-width="1.3"/>
+<text x="200" y="758" font-size="13" text-anchor="middle" fill="#0f141a">Done</text>
+<text x="200" y="773" font-size="10" text-anchor="middle" fill="#656871">補償を終えて完了</text>
+<path d="M200,705.0 L200,740.0" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
+<text x="610" y="150" font-size="12" font-weight="700" fill="#c2410c">準備の失敗（Catch）</text>
+<rect x="605.0" y="165.0" width="230" height="40" rx="6" fill="#fff1e6" stroke="#c2410c" stroke-width="1.3"/>
+<text x="720" y="183" font-size="13" text-anchor="middle" fill="#0f141a">RecordAbort</text>
+<text x="720" y="198" font-size="10" text-anchor="middle" fill="#656871">販売を止めるだけ</text>
+<rect x="605.0" y="230.0" width="230" height="40" rx="6" fill="#fff1e6" stroke="#c2410c" stroke-width="1.3"/>
+<text x="720" y="248" font-size="13" text-anchor="middle" fill="#0f141a">RecordAbortThenRelease</text>
+<text x="720" y="263" font-size="10" text-anchor="middle" fill="#656871">販売を止めて解放へ</text>
+<rect x="605.0" y="295.0" width="230" height="40" rx="6" fill="#fff1e6" stroke="#c2410c" stroke-width="1.3"/>
+<text x="720" y="313" font-size="13" text-anchor="middle" fill="#0f141a">RecordAbortThenClose</text>
+<text x="720" y="328" font-size="10" text-anchor="middle" fill="#656871">販売を止めて閉じるへ</text>
+<path d="M310.0,185 L605,185" fill="none" stroke="#c2410c" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#arc)"/>
+<text x="318.0" y="180" font-size="11" fill="#c2410c">Catch</text>
+<path d="M310.0,250 L605,250" fill="none" stroke="#c2410c" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#arc)"/>
+<text x="318.0" y="245" font-size="11" fill="#c2410c">Catch</text>
+<path d="M310.0,315 L605,315" fill="none" stroke="#c2410c" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#arc)"/>
+<text x="318.0" y="310" font-size="11" fill="#c2410c">Catch</text>
+<circle cx="895" cy="185" r="13" fill="#f2f3f3" stroke="#5f6b7a" stroke-width="1.3"/>
+<text x="895" y="189" font-size="10" text-anchor="middle" fill="#0f141a">End</text>
+<path d="M835,185 L882,185" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
+<path d="M835,315 L905,315 L905,615 L310.0,615" fill="none" stroke="#c2410c" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#arc)"/>
+<path d="M835,250 L930,250 L930,685 L310.0,685" fill="none" stroke="#c2410c" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#arc)"/>
+<g font-size="11" fill="#45505c"><line x1="560" y1="770" x2="600" y2="770" stroke="#5f6b7a" stroke-width="1.4"/><text x="606" y="774">遷移（Next / Choice）</text><line x1="560" y1="792" x2="600" y2="792" stroke="#c2410c" stroke-width="1.4" stroke-dasharray="5,4"/><text x="606" y="796">Catch（準備の失敗）</text></g>
+</svg>

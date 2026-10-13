@@ -1,0 +1,12 @@
+*.js
+*.d.ts
+node_modules
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+
+# アカウント/リソース固有の情報を含むため公開しない
+cdk-outputs.json
+run-*.log
+docs/evidence/
