@@ -1,78 +1,228 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="830" viewBox="0 0 960 830" font-family="'Noto Sans CJK JP','Hiragino Sans',sans-serif">
-<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5f6b7a"/></marker><marker id="arc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker></defs>
-<rect width="960" height="830" fill="#ffffff"/>
-<text x="24" y="36" font-size="19" font-weight="700" fill="#1a1a2e">Step Functions 版のステートマシン定義</text>
-<circle cx="200" cy="70" r="13" fill="#f2f3f3" stroke="#5f6b7a" stroke-width="1.3"/>
-<text x="200" y="74" font-size="10" text-anchor="middle" fill="#0f141a">Start</text>
-<rect x="90.0" y="100.0" width="220" height="40" rx="6" fill="#f2f3f3" stroke="#8c8c94" stroke-width="1.3"/>
-<text x="200" y="118" font-size="13" text-anchor="middle" fill="#0f141a">Init</text>
-<text x="200" y="133" font-size="10" text-anchor="middle" fill="#656871">初期値を Assign</text>
-<rect x="90.0" y="165.0" width="220" height="40" rx="6" fill="#ffffff" stroke="#8c8c94" stroke-width="1.3"/>
-<text x="200" y="183" font-size="13" text-anchor="middle" fill="#0f141a">ReserveStreaming</text>
-<text x="200" y="198" font-size="10" text-anchor="middle" fill="#656871">1. 配信リソースを確保</text>
-<rect x="90.0" y="230.0" width="220" height="40" rx="6" fill="#ffffff" stroke="#8c8c94" stroke-width="1.3"/>
-<text x="200" y="248" font-size="13" text-anchor="middle" fill="#0f141a">OpenViewingPage</text>
-<text x="200" y="263" font-size="10" text-anchor="middle" fill="#656871">2. 視聴ページを公開</text>
-<rect x="90.0" y="295.0" width="220" height="40" rx="6" fill="#ffffff" stroke="#8c8c94" stroke-width="1.3"/>
-<text x="200" y="313" font-size="13" text-anchor="middle" fill="#0f141a">NotifyPartners</text>
-<text x="200" y="328" font-size="10" text-anchor="middle" fill="#656871">3. 配信先へ連絡</text>
-<rect x="90.0" y="370.0" width="220" height="40" rx="6" fill="#fff9cc" stroke="#a58b00" stroke-width="1.3"/>
-<text x="200" y="388" font-size="13" text-anchor="middle" fill="#0f141a">AwaitGoDecision</text>
-<text x="200" y="403" font-size="10" text-anchor="middle" fill="#656871">4. 開催か中止か（入力の cancel）</text>
-<path d="M200,83 L200,100.0" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
-<path d="M200,140.0 L200,165.0" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
-<path d="M200,205.0 L200,230.0" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
-<path d="M200,270.0 L200,295.0" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
-<path d="M200,335.0 L200,370.0" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
-<rect x="370.0" y="370.0" width="200" height="40" rx="6" fill="#ffffff" stroke="#8c8c94" stroke-width="1.3"/>
-<text x="470" y="388" font-size="13" text-anchor="middle" fill="#0f141a">StartStreaming</text>
-<text x="470" y="403" font-size="10" text-anchor="middle" fill="#656871">5. 配信開始（ピボット）</text>
-<path d="M310.0,390 L370,390" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
-<text x="318.0" y="384" font-size="11" fill="#5f6b7a">Default</text>
-<circle cx="470" cy="455" r="13" fill="#f2f3f3" stroke="#5f6b7a" stroke-width="1.3"/>
-<text x="470" y="459" font-size="10" text-anchor="middle" fill="#0f141a">End</text>
-<path d="M470,410.0 L470,442" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
-<rect x="90.0" y="455.0" width="220" height="40" rx="6" fill="#fff1e6" stroke="#c2410c" stroke-width="1.3"/>
-<text x="200" y="473" font-size="13" text-anchor="middle" fill="#0f141a">RecordCancellation</text>
-<text x="200" y="488" font-size="10" text-anchor="middle" fill="#656871">販売を止めて中止表示</text>
-<rect x="90.0" y="525.0" width="220" height="40" rx="6" fill="#ffffff" stroke="#8c8c94" stroke-width="1.3"/>
-<text x="200" y="543" font-size="13" text-anchor="middle" fill="#0f141a">CompensateNotifyPartners</text>
-<text x="200" y="558" font-size="10" text-anchor="middle" fill="#656871">① 配信先へ中止連絡</text>
-<rect x="90.0" y="595.0" width="220" height="40" rx="6" fill="#ffffff" stroke="#8c8c94" stroke-width="1.3"/>
-<text x="200" y="613" font-size="13" text-anchor="middle" fill="#0f141a">CloseViewingPage</text>
-<text x="200" y="628" font-size="10" text-anchor="middle" fill="#656871">② 視聴ページを閉じる</text>
-<rect x="90.0" y="665.0" width="220" height="40" rx="6" fill="#ffffff" stroke="#8c8c94" stroke-width="1.3"/>
-<text x="200" y="683" font-size="13" text-anchor="middle" fill="#0f141a">ReleaseStreaming</text>
-<text x="200" y="698" font-size="10" text-anchor="middle" fill="#656871">③ 配信リソースを解放</text>
-<path d="M200,410.0 L200,455.0" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
-<text x="208" y="436.0" font-size="11" fill="#5f6b7a">$cancel = true</text>
-<path d="M200,495.0 L200,525.0" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
-<path d="M200,565.0 L200,595.0" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
-<path d="M200,635.0 L200,665.0" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
-<rect x="100.0" y="740.0" width="200" height="40" rx="6" fill="#eaf7ee" stroke="#2e9e5b" stroke-width="1.3"/>
-<text x="200" y="758" font-size="13" text-anchor="middle" fill="#0f141a">Done</text>
-<text x="200" y="773" font-size="10" text-anchor="middle" fill="#656871">補償を終えて完了</text>
-<path d="M200,705.0 L200,740.0" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
-<text x="610" y="150" font-size="12" font-weight="700" fill="#c2410c">準備の失敗（Catch）</text>
-<rect x="605.0" y="165.0" width="230" height="40" rx="6" fill="#fff1e6" stroke="#c2410c" stroke-width="1.3"/>
-<text x="720" y="183" font-size="13" text-anchor="middle" fill="#0f141a">RecordAbort</text>
-<text x="720" y="198" font-size="10" text-anchor="middle" fill="#656871">販売を止めるだけ</text>
-<rect x="605.0" y="230.0" width="230" height="40" rx="6" fill="#fff1e6" stroke="#c2410c" stroke-width="1.3"/>
-<text x="720" y="248" font-size="13" text-anchor="middle" fill="#0f141a">RecordAbortThenRelease</text>
-<text x="720" y="263" font-size="10" text-anchor="middle" fill="#656871">販売を止めて解放へ</text>
-<rect x="605.0" y="295.0" width="230" height="40" rx="6" fill="#fff1e6" stroke="#c2410c" stroke-width="1.3"/>
-<text x="720" y="313" font-size="13" text-anchor="middle" fill="#0f141a">RecordAbortThenClose</text>
-<text x="720" y="328" font-size="10" text-anchor="middle" fill="#656871">販売を止めて閉じるへ</text>
-<path d="M310.0,185 L605,185" fill="none" stroke="#c2410c" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#arc)"/>
-<text x="318.0" y="180" font-size="11" fill="#c2410c">Catch</text>
-<path d="M310.0,250 L605,250" fill="none" stroke="#c2410c" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#arc)"/>
-<text x="318.0" y="245" font-size="11" fill="#c2410c">Catch</text>
-<path d="M310.0,315 L605,315" fill="none" stroke="#c2410c" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#arc)"/>
-<text x="318.0" y="310" font-size="11" fill="#c2410c">Catch</text>
-<circle cx="895" cy="185" r="13" fill="#f2f3f3" stroke="#5f6b7a" stroke-width="1.3"/>
-<text x="895" y="189" font-size="10" text-anchor="middle" fill="#0f141a">End</text>
-<path d="M835,185 L882,185" fill="none" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#ar)"/>
-<path d="M835,315 L905,315 L905,615 L310.0,615" fill="none" stroke="#c2410c" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#arc)"/>
-<path d="M835,250 L930,250 L930,685 L310.0,685" fill="none" stroke="#c2410c" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#arc)"/>
-<g font-size="11" fill="#45505c"><line x1="560" y1="770" x2="600" y2="770" stroke="#5f6b7a" stroke-width="1.4"/><text x="606" y="774">遷移（Next / Choice）</text><line x1="560" y1="792" x2="600" y2="792" stroke="#c2410c" stroke-width="1.4" stroke-dasharray="5,4"/><text x="606" y="796">Catch（準備の失敗）</text></g>
-</svg>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "https://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" class="sc-hBtRBD kOTrwD graph" data-testid="graph" role="img" aria-labelledby="polymath-graph-title" width="1012" height="1050"><title id="polymath-graph-title">Workflow Studio ステートマシングラフ</title><g transform="translate(11.999992370605469,12)" class="new-look-graph"><g class="nodes"><g class="node-container" transform="translate(495,22)"><g><circle class="sc-kbousE ljMUtk shape" r="22"/><text class="sc-gfoqjT lfHSwY label"><tspan xml:space="preserve" text-anchor="middle" alignment-baseline="central">Start</tspan></text></g></g><g class="node-container" transform="translate(495,105)"><g class="sc-jMakVo gLodWQ node state Pass" data-testid="graph-Init" data-state-id="Init" data-state-type="Pass"><g class="new-look-state-node "><rect x="-120" y="-26" width="240" height="52" rx="8" ry="8"/><g class="handle" transform="translate(-120,-26)" aria-hidden="true"><circle cx="7" cy="20" r="1.5"/><circle cx="12" cy="20" r="1.5"/><circle cx="7" cy="26" r="1.5"/><circle cx="12" cy="26" r="1.5"/><circle cx="7" cy="32" r="1.5"/><circle cx="12" cy="32" r="1.5"/></g><svg class="icon" x="-102" y="-18" width="36" height="36" viewBox="0 0 48 48" overflow="hidden" style="clip-path:inset(0 round 6px)"><title>Pass state</title><rect fill="var(--color-background-container-header-irktp5, #ffffff)" x="0" y="0" width="48" height="48"/><use href="#icon-flow-pass"/><style data-styled="true" data-styled-version="5.3.11">.gLodWQ{cursor:pointer;}/*!sc*/
+data-styled.g82[id="sc-jMakVo"]{content:"gLodWQ,"}/*!sc*/
+.fiRwOv{stroke:#555;background-color:#555;stroke-width:1px;}/*!sc*/
+data-styled.g83[id="sc-iMTnTL"]{content:"fiRwOv,"}/*!sc*/
+.kRbCgY{stroke-width:0;stroke:none;fill:#f2f3f3;}/*!sc*/
+data-styled.g84[id="sc-krNlru"]{content:"kRbCgY,"}/*!sc*/
+.kTlXpt{font-size:10px;line-height:12.5;stroke:none;}/*!sc*/
+data-styled.g85[id="sc-hwdzOV"]{content:"kTlXpt,"}/*!sc*/
+.lfHSwY{font-weight:400;font-size:12px;line-height:16px;font-family:Amazon Ember,Arial,Roboto,Arial,sans-serif;text-shadow:none;fill:var(--color-text-button-primary-default-twcxgo,#0f141a);}/*!sc*/
+data-styled.g104[id="sc-gfoqjT"]{content:"lfHSwY,"}/*!sc*/
+.ljMUtk{fill:#fff9cc;stroke:var(--color-text-form-secondary-wt0md2,#656871);stroke-width:0.6px;}/*!sc*/
+data-styled.g105[id="sc-kbousE"]{content:"ljMUtk,"}/*!sc*/
+.enMlgo{fill:var(--color-text-form-secondary-wt0md2,#656871);}/*!sc*/
+data-styled.g109[id="sc-bDumWk"]{content:"enMlgo,"}/*!sc*/
+</style><style>
+.new-look-state-node &gt; rect:first-of-type {
+  stroke: var(--color-border-control-default-9qbus4, #8c8c94);
+  stroke-width: 1px;
+  fill: var(--color-background-container-content-mjfil9, #ffffff);
+}
+
+.new-look-state-node .error-icon circle {
+ stroke-linejoin: round;
+}
+
+.new-look-state-node .error-icon circle, .new-look-state-node .error-icon path {
+ stroke: var(--color-border-status-error-nczvil, #db0000);
+ fill: none;
+ stroke-width: 2px;
+}
+
+.new-look-state-node.has-errors &gt; rect:first-of-type {
+ stroke: var(--color-border-status-error-nczvil, #db0000);
+ fill: #671c00;
+}
+
+.new-look-state-node.has-errors &gt; .bounding-box &gt; .new-look-state-node-sub &gt; rect {
+  stroke: var(--color-border-status-error-nczvil, #db0000);
+  fill: var(--color-background-status-error-edh6bo, #fff5f5);
+}
+
+.new-look-state-node .handle circle {
+  fill: var(--color-border-dropdown-item-hover-y2b7z1, #8c8c94);
+}
+
+.new-look-state-node {
+  font-weight: 400;
+  font-family: Amazon Ember, Arial, Roboto, Arial, sans-serif;
+  text-shadow: none;
+}
+
+.new-look-state-node .line1 {
+  fill: var(--color-text-form-secondary-wt0md2, #656871);
+  font-size: 12px;
+}
+
+.new-look-state-node .line2 {
+  fill: var(--color-text-form-default-8bb22s, #0f141a);
+}
+
+.selected.node &gt; .new-look-state-node &gt; rect,
+.selected.node &gt; .new-look-state-node &gt; .new-look-state-node &gt; rect,
+.selected.node &gt; .new-look-state-node &gt; .bounding-box &gt; rect,
+.selected.node &gt; .new-look-state-node.has-errors &gt; rect,
+.selected.node &gt; .new-look-state-node.has-errors &gt; .bounding-box &gt; rect,
+.selected.node &gt; .new-look-state-node.has-errors &gt; .new-look-state-node &gt; rect,
+.selected.node &gt; .new-look-state-node &gt; .bounding-box &gt; .new-look-state-node-sub &gt; rect
+ {
+  stroke: var(--color-border-status-info-e5c14y, #006ce0);
+  fill: var(--color-background-status-info-lki61z, #f0fbff);
+  stroke-width: 2px;
+}
+
+.new-look-state-node-sub .item-source.not-specified {
+  height: 15px;
+  color: var(--color-text-form-secondary-wt0md2, #656871);
+  font-family: Amazon Ember, Arial, Roboto, Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 16px;
+  font-weight: 400;
+}
+.new-look-state-node-sub .item-source .item-source_name{
+  font-weight: 600;
+}
+.new-look-state-node-sub .item-source.not-specified .item-source_name{
+  font-weight: 400;
+}
+
+.new-look-state-node-sub .item-source.not-specified {
+  font-style: italic;
+}
+
+.new-look-state-node-sub &gt; rect,
+.new-look-state-node &gt; .bounding-box &gt; rect {
+  stroke: var(--color-border-control-default-9qbus4, #8c8c94);
+  fill: var(--color-background-container-content-mjfil9, #ffffff);
+}
+
+.new-look-graph .drag-source {
+  opacity: 0.2;
+}
+
+.new-look-graph .edge, .new-look-graph path.starting-connection {
+  stroke-width: 1px;
+  stroke: var(--color-text-form-secondary-wt0md2, #656871);
+  marker-end: url(#large-arrowhead);
+}
+
+.new-look-graph .edge-label {
+  cursor: pointer;
+}
+
+.new-look-graph .edge-label rect {
+  stroke-width: 1px;
+  stroke: var(--color-border-control-default-9qbus4, #8c8c94);
+  fill: var(--color-background-container-header-irktp5, #ffffff);
+}
+
+.new-look-graph .edge-label.selected rect {
+  stroke: var(--color-border-status-info-e5c14y, #006ce0);
+  fill: var(--color-background-status-info-lki61z, #f0fbff);
+  stroke-width: 0.6px;
+}
+
+
+
+.new-look-graph .edge-label .label {
+  fill: var(--color-text-form-secondary-wt0md2, #656871);
+  font-family: Amazon Ember, Arial, Roboto, Arial, sans-serif;
+}
+
+/* centering the shape text */
+@-moz-document url-prefix() {
+  .new-look-graph .shape + text,
+  .new-look-graph .edge-label text {
+    transform: translateY(3.5px);
+  }
+}
+
+.new-look-graph .edge path {
+  marker-end: url(#large-arrowhead) !important;
+}
+
+.new-look-graph .edge.selected path{
+  stroke: var(--color-border-status-info-e5c14y, #006ce0);
+  stroke-width: 1.1px;
+}
+
+.new-look-graph .edge.dragging-over path, .new-look-graph  g.dragging-over .starting-connection {
+  stroke: #24439E;
+  stroke-width: 2px;
+}
+
+.new-look-graph .edge.dragging-over path, .new-look-graph .dragging-over path.starting-connection {
+  marker-end: url(#large-highlighted-arrowhead) !important;
+}
+
+.new-look-graph .edge.dragging-over .edge-label text {
+  fill: #24439E;
+}
+
+#large-highlighted-arrowhead {
+  fill: #24439E;
+}
+
+#large-highlighted-arrowhead path {
+  stroke: none;
+}
+
+.new-look-graph .edge.drop-not-supported path, g.drop-not-supported .starting-connection {
+  stroke: var(--color-border-status-error-nczvil, #db0000);
+}
+
+.new-look-graph .edge.drop-not-supported .edge-label text {
+  fill: var(--color-border-status-error-nczvil, #db0000);
+}
+
+.new-look-graph .edge.drop-not-supported path {
+  marker-end: url(#large-error-arrowhead) !important;
+}
+
+#large-error-arrowhead {
+  fill: var(--color-border-status-error-nczvil, #db0000);
+}
+
+.node-container * &gt; .icon  {
+  clip-path: inset(0 round 6px);
+  &gt; rect {
+    fill: var(--color-background-container-header-irktp5, #ffffff);
+  }
+}
+
+.node-container * &gt; .icon-divider {
+  stroke: var(--color-border-divider-default-diwd4w, #c6c6cd);
+}
+
+
+.node.Placeholder.dragging-over rect {
+  stroke: var(--color-border-status-info-e5c14y, #006ce0);
+  fill: var(--color-background-status-info-lki61z, #f0fbff);
+  stroke-width: 2px;
+}
+
+.node.Placeholder.dragging-over .label {
+  fill: var(--color-text-status-info-su6k9n, #006ce0);
+}
+
+g.Placeholder rect {
+  stroke-dasharray: 5 4;
+  stroke: var(--color-border-dropdown-item-hover-y2b7z1, #8c8c94);
+  fill: #1a2029;
+  stroke-width: 1px;
+}
+
+g.Placeholder .label {
+  font-style: italic;
+  fill: var(--color-text-input-placeholder-l6klmg, #656871);
+}
+
+.node.Placeholder.drop-not-supported rect {
+  stroke: red;
+}
+
+.node.Placeholder.drop-not-supported .label {
+  fill: red;
+}
+</style><style>.line2 { font-size: 14px }</style></svg><g class="text-lines" transform="translate(-58,-26)"><text transform="translate(0,18)" class="line1"><tspan xml:space="preserve" text-anchor="start">Pass state</tspan></text><text transform="translate(0,36.5)" class="line2 label"><tspan xml:space="preserve" text-anchor="start">Init</tspan></text></g></g></g></g><g class="node-container" transform="translate(495,192)"><g class="sc-jMakVo gLodWQ node state Task" data-testid="graph-ReserveStreaming" data-state-id="ReserveStreaming" data-state-type="Task"><g class="new-look-state-node "><rect x="-120" y="-26" width="240" height="52" rx="8" ry="8"/><g class="handle" transform="translate(-120,-26)" aria-hidden="true"><circle cx="7" cy="20" r="1.5"/><circle cx="12" cy="20" r="1.5"/><circle cx="7" cy="26" r="1.5"/><circle cx="12" cy="26" r="1.5"/><circle cx="7" cy="32" r="1.5"/><circle cx="12" cy="32" r="1.5"/></g><svg class="icon" x="-102" y="-18" width="36" height="36" viewBox="0 0 48 48" overflow="hidden" style="clip-path:inset(0 round 6px)"><title>Lambda: Invoke</title><rect fill="var(--color-background-container-header-irktp5, #ffffff)" x="0" y="0" width="48" height="48"/><use href="#icon-service-lam" aria-hidden="true"><title>Lambda</title></use></svg><g class="text-lines" transform="translate(-58,-26)"><text transform="translate(0,18)" class="line1"><tspan xml:space="preserve" text-anchor="start">Lambda: Invoke</tspan></text><text transform="translate(0,36.5)" class="line2 label"><tspan xml:space="preserve" text-anchor="start">ReserveStreaming</tspan></text></g></g></g></g><g class="node-container" transform="translate(417.5,279)"><g class="sc-jMakVo gLodWQ node state Task" data-testid="graph-OpenViewingPage" data-state-id="OpenViewingPage" data-state-type="Task"><g class="new-look-state-node "><rect x="-120" y="-26" width="240" height="52" rx="8" ry="8"/><g class="handle" transform="translate(-120,-26)" aria-hidden="true"><circle cx="7" cy="20" r="1.5"/><circle cx="12" cy="20" r="1.5"/><circle cx="7" cy="26" r="1.5"/><circle cx="12" cy="26" r="1.5"/><circle cx="7" cy="32" r="1.5"/><circle cx="12" cy="32" r="1.5"/></g><svg class="icon" x="-102" y="-18" width="36" height="36" viewBox="0 0 48 48" overflow="hidden" style="clip-path:inset(0 round 6px)"><title>Lambda: Invoke</title><rect fill="var(--color-background-container-header-irktp5, #ffffff)" x="0" y="0" width="48" height="48"/><use href="#icon-service-lam" aria-hidden="true"><title>Lambda</title></use></svg><g class="text-lines" transform="translate(-58,-26)"><text transform="translate(0,18)" class="line1"><tspan xml:space="preserve" text-anchor="start">Lambda: Invoke</tspan></text><text transform="translate(0,36.5)" class="line2 label"><tspan xml:space="preserve" text-anchor="start">OpenViewingPage</tspan></text></g></g></g></g><g class="node-container" transform="translate(867.5,921)"><g class="sc-jMakVo gLodWQ node state Task" data-testid="graph-RecordAbort" data-state-id="RecordAbort" data-state-type="Task"><g class="new-look-state-node "><rect x="-120" y="-26" width="240" height="52" rx="8" ry="8"/><g class="handle" transform="translate(-120,-26)" aria-hidden="true"><circle cx="7" cy="20" r="1.5"/><circle cx="12" cy="20" r="1.5"/><circle cx="7" cy="26" r="1.5"/><circle cx="12" cy="26" r="1.5"/><circle cx="7" cy="32" r="1.5"/><circle cx="12" cy="32" r="1.5"/></g><svg class="icon" x="-102" y="-18" width="36" height="36" viewBox="0 0 48 48" overflow="hidden" style="clip-path:inset(0 round 6px)"><title>Lambda: Invoke</title><rect fill="var(--color-background-container-header-irktp5, #ffffff)" x="0" y="0" width="48" height="48"/><use href="#icon-service-lam" aria-hidden="true"><title>Lambda</title></use></svg><g class="text-lines" transform="translate(-58,-26)"><text transform="translate(0,18)" class="line1"><tspan xml:space="preserve" text-anchor="start">Lambda: Invoke</tspan></text><text transform="translate(0,36.5)" class="line2 label"><tspan xml:space="preserve" text-anchor="start">RecordAbort</tspan></text></g></g></g></g><g class="node-container" transform="translate(340,366)"><g class="sc-jMakVo gLodWQ node state Task" data-testid="graph-NotifyPartners" data-state-id="NotifyPartners" data-state-type="Task"><g class="new-look-state-node "><rect x="-120" y="-26" width="240" height="52" rx="8" ry="8"/><g class="handle" transform="translate(-120,-26)" aria-hidden="true"><circle cx="7" cy="20" r="1.5"/><circle cx="12" cy="20" r="1.5"/><circle cx="7" cy="26" r="1.5"/><circle cx="12" cy="26" r="1.5"/><circle cx="7" cy="32" r="1.5"/><circle cx="12" cy="32" r="1.5"/></g><svg class="icon" x="-102" y="-18" width="36" height="36" viewBox="0 0 48 48" overflow="hidden" style="clip-path:inset(0 round 6px)"><title>Lambda: Invoke</title><rect fill="var(--color-background-container-header-irktp5, #ffffff)" x="0" y="0" width="48" height="48"/><use href="#icon-service-lam" aria-hidden="true"><title>Lambda</title></use></svg><g class="text-lines" transform="translate(-58,-26)"><text transform="translate(0,18)" class="line1"><tspan xml:space="preserve" text-anchor="start">Lambda: Invoke</tspan></text><text transform="translate(0,36.5)" class="line2 label"><tspan xml:space="preserve" text-anchor="start">NotifyPartners</tspan></text></g></g></g></g><g class="node-container" transform="translate(712.5,747)"><g class="sc-jMakVo gLodWQ node state Task" data-testid="graph-RecordAbortThenRelease" data-state-id="RecordAbortThenRelease" data-state-type="Task"><g class="new-look-state-node "><rect x="-120" y="-26" width="240" height="52" rx="8" ry="8"/><g class="handle" transform="translate(-120,-26)" aria-hidden="true"><circle cx="7" cy="20" r="1.5"/><circle cx="12" cy="20" r="1.5"/><circle cx="7" cy="26" r="1.5"/><circle cx="12" cy="26" r="1.5"/><circle cx="7" cy="32" r="1.5"/><circle cx="12" cy="32" r="1.5"/></g><svg class="icon" x="-102" y="-18" width="36" height="36" viewBox="0 0 48 48" overflow="hidden" style="clip-path:inset(0 round 6px)"><title>Lambda: Invoke</title><rect fill="var(--color-background-container-header-irktp5, #ffffff)" x="0" y="0" width="48" height="48"/><use href="#icon-service-lam" aria-hidden="true"><title>Lambda</title></use></svg><g class="text-lines" transform="translate(-58,-26)"><text transform="translate(0,18)" class="line1"><tspan xml:space="preserve" text-anchor="start">Lambda: Invoke</tspan></text><text transform="translate(0,36.5)" class="line2 label"><tspan xml:space="preserve" text-anchor="start">RecordAbortThenRelease</tspan></text></g></g></g></g><g class="node-container" transform="translate(262.5,453)"><g class="sc-jMakVo gLodWQ node state Choice" data-testid="graph-AwaitGoDecision" data-state-id="AwaitGoDecision" data-state-type="Choice"><g class="new-look-state-node "><rect x="-120" y="-26" width="240" height="52" rx="8" ry="8"/><g class="handle" transform="translate(-120,-26)" aria-hidden="true"><circle cx="7" cy="20" r="1.5"/><circle cx="12" cy="20" r="1.5"/><circle cx="7" cy="26" r="1.5"/><circle cx="12" cy="26" r="1.5"/><circle cx="7" cy="32" r="1.5"/><circle cx="12" cy="32" r="1.5"/></g><svg class="icon" x="-102" y="-18" width="36" height="36" viewBox="0 0 48 48" overflow="hidden" style="clip-path:inset(0 round 6px)"><title>Choice state</title><rect fill="var(--color-background-container-header-irktp5, #ffffff)" x="0" y="0" width="48" height="48"/><use href="#icon-flow-choice"/></svg><g class="text-lines" transform="translate(-58,-26)"><text transform="translate(0,18)" class="line1"><tspan xml:space="preserve" text-anchor="start">Choice state</tspan></text><text transform="translate(0,36.5)" class="line2 label"><tspan xml:space="preserve" text-anchor="start">AwaitGoDecision</tspan></text></g></g></g></g><g class="node-container" transform="translate(557.5,643.5)"><g class="sc-jMakVo gLodWQ node state Task" data-testid="graph-RecordAbortThenClose" data-state-id="RecordAbortThenClose" data-state-type="Task"><g class="new-look-state-node "><rect x="-120" y="-26" width="240" height="52" rx="8" ry="8"/><g class="handle" transform="translate(-120,-26)" aria-hidden="true"><circle cx="7" cy="20" r="1.5"/><circle cx="12" cy="20" r="1.5"/><circle cx="7" cy="26" r="1.5"/><circle cx="12" cy="26" r="1.5"/><circle cx="7" cy="32" r="1.5"/><circle cx="12" cy="32" r="1.5"/></g><svg class="icon" x="-102" y="-18" width="36" height="36" viewBox="0 0 48 48" overflow="hidden" style="clip-path:inset(0 round 6px)"><title>Lambda: Invoke</title><rect fill="var(--color-background-container-header-irktp5, #ffffff)" x="0" y="0" width="48" height="48"/><use href="#icon-service-lam" aria-hidden="true"><title>Lambda</title></use></svg><g class="text-lines" transform="translate(-58,-26)"><text transform="translate(0,18)" class="line1"><tspan xml:space="preserve" text-anchor="start">Lambda: Invoke</tspan></text><text transform="translate(0,36.5)" class="line2 label"><tspan xml:space="preserve" text-anchor="start">RecordAbortThenClose</tspan></text></g></g></g></g><g class="node-container" transform="translate(122.5,556.5)"><g class="sc-jMakVo gLodWQ node state Task" data-testid="graph-RecordCancellation" data-state-id="RecordCancellation" data-state-type="Task"><g class="new-look-state-node "><rect x="-120" y="-26" width="240" height="52" rx="8" ry="8"/><g class="handle" transform="translate(-120,-26)" aria-hidden="true"><circle cx="7" cy="20" r="1.5"/><circle cx="12" cy="20" r="1.5"/><circle cx="7" cy="26" r="1.5"/><circle cx="12" cy="26" r="1.5"/><circle cx="7" cy="32" r="1.5"/><circle cx="12" cy="32" r="1.5"/></g><svg class="icon" x="-102" y="-18" width="36" height="36" viewBox="0 0 48 48" overflow="hidden" style="clip-path:inset(0 round 6px)"><title>Lambda: Invoke</title><rect fill="var(--color-background-container-header-irktp5, #ffffff)" x="0" y="0" width="48" height="48"/><use href="#icon-service-lam" aria-hidden="true"><title>Lambda</title></use></svg><g class="text-lines" transform="translate(-58,-26)"><text transform="translate(0,18)" class="line1"><tspan xml:space="preserve" text-anchor="start">Lambda: Invoke</tspan></text><text transform="translate(0,36.5)" class="line2 label"><tspan xml:space="preserve" text-anchor="start">RecordCancellation</tspan></text></g></g></g></g><g class="node-container" transform="translate(402.5,921)"><g class="sc-jMakVo gLodWQ node state Task" data-testid="graph-StartStreaming" data-state-id="StartStreaming" data-state-type="Task"><g class="new-look-state-node "><rect x="-120" y="-26" width="240" height="52" rx="8" ry="8"/><g class="handle" transform="translate(-120,-26)" aria-hidden="true"><circle cx="7" cy="20" r="1.5"/><circle cx="12" cy="20" r="1.5"/><circle cx="7" cy="26" r="1.5"/><circle cx="12" cy="26" r="1.5"/><circle cx="7" cy="32" r="1.5"/><circle cx="12" cy="32" r="1.5"/></g><svg class="icon" x="-102" y="-18" width="36" height="36" viewBox="0 0 48 48" overflow="hidden" style="clip-path:inset(0 round 6px)"><title>Lambda: Invoke</title><rect fill="var(--color-background-container-header-irktp5, #ffffff)" x="0" y="0" width="48" height="48"/><use href="#icon-service-lam" aria-hidden="true"><title>Lambda</title></use></svg><g class="text-lines" transform="translate(-58,-26)"><text transform="translate(0,18)" class="line1"><tspan xml:space="preserve" text-anchor="start">Lambda: Invoke</tspan></text><text transform="translate(0,36.5)" class="line2 label"><tspan xml:space="preserve" text-anchor="start">StartStreaming</tspan></text></g></g></g></g><g class="node-container" transform="translate(402.5,1004)"><g><circle class="sc-kbousE ljMUtk shape" r="22"/><text class="sc-gfoqjT lfHSwY label"><tspan xml:space="preserve" text-anchor="middle" alignment-baseline="central">End</tspan></text></g></g><g class="node-container" transform="translate(122.5,643.5)"><g class="sc-jMakVo gLodWQ node state Task" data-testid="graph-CompensateNotifyPartners" data-state-id="CompensateNotifyPartners" data-state-type="Task"><g class="new-look-state-node "><rect x="-122.5" y="-26" width="245" height="52" rx="8" ry="8"/><g class="handle" transform="translate(-122.5,-26)" aria-hidden="true"><circle cx="7" cy="20" r="1.5"/><circle cx="12" cy="20" r="1.5"/><circle cx="7" cy="26" r="1.5"/><circle cx="12" cy="26" r="1.5"/><circle cx="7" cy="32" r="1.5"/><circle cx="12" cy="32" r="1.5"/></g><svg class="icon" x="-104.5" y="-18" width="36" height="36" viewBox="0 0 48 48" overflow="hidden" style="clip-path:inset(0 round 6px)"><title>Lambda: Invoke</title><rect fill="var(--color-background-container-header-irktp5, #ffffff)" x="0" y="0" width="48" height="48"/><use href="#icon-service-lam" aria-hidden="true"><title>Lambda</title></use></svg><g class="text-lines" transform="translate(-60.5,-26)"><text transform="translate(0,18)" class="line1"><tspan xml:space="preserve" text-anchor="start">Lambda: Invoke</tspan></text><text transform="translate(0,36.5)" class="line2 label"><tspan xml:space="preserve" text-anchor="start">CompensateNotifyPartners</tspan></text></g></g></g></g><g class="node-container" transform="translate(122.5,834)"><g class="sc-jMakVo gLodWQ node state Task" data-testid="graph-ReleaseStreaming" data-state-id="ReleaseStreaming" data-state-type="Task"><g class="new-look-state-node "><rect x="-120" y="-26" width="240" height="52" rx="8" ry="8"/><g class="handle" transform="translate(-120,-26)" aria-hidden="true"><circle cx="7" cy="20" r="1.5"/><circle cx="12" cy="20" r="1.5"/><circle cx="7" cy="26" r="1.5"/><circle cx="12" cy="26" r="1.5"/><circle cx="7" cy="32" r="1.5"/><circle cx="12" cy="32" r="1.5"/></g><svg class="icon" x="-102" y="-18" width="36" height="36" viewBox="0 0 48 48" overflow="hidden" style="clip-path:inset(0 round 6px)"><title>Lambda: Invoke</title><rect fill="var(--color-background-container-header-irktp5, #ffffff)" x="0" y="0" width="48" height="48"/><use href="#icon-service-lam" aria-hidden="true"><title>Lambda</title></use></svg><g class="text-lines" transform="translate(-58,-26)"><text transform="translate(0,18)" class="line1"><tspan xml:space="preserve" text-anchor="start">Lambda: Invoke</tspan></text><text transform="translate(0,36.5)" class="line2 label"><tspan xml:space="preserve" text-anchor="start">ReleaseStreaming</tspan></text></g></g></g></g><g class="node-container" transform="translate(122.5,747)"><g class="sc-jMakVo gLodWQ node state Task" data-testid="graph-CloseViewingPage" data-state-id="CloseViewingPage" data-state-type="Task"><g class="new-look-state-node "><rect x="-120" y="-26" width="240" height="52" rx="8" ry="8"/><g class="handle" transform="translate(-120,-26)" aria-hidden="true"><circle cx="7" cy="20" r="1.5"/><circle cx="12" cy="20" r="1.5"/><circle cx="7" cy="26" r="1.5"/><circle cx="12" cy="26" r="1.5"/><circle cx="7" cy="32" r="1.5"/><circle cx="12" cy="32" r="1.5"/></g><svg class="icon" x="-102" y="-18" width="36" height="36" viewBox="0 0 48 48" overflow="hidden" style="clip-path:inset(0 round 6px)"><title>Lambda: Invoke</title><rect fill="var(--color-background-container-header-irktp5, #ffffff)" x="0" y="0" width="48" height="48"/><use href="#icon-service-lam" aria-hidden="true"><title>Lambda</title></use></svg><g class="text-lines" transform="translate(-58,-26)"><text transform="translate(0,18)" class="line1"><tspan xml:space="preserve" text-anchor="start">Lambda: Invoke</tspan></text><text transform="translate(0,36.5)" class="line2 label"><tspan xml:space="preserve" text-anchor="start">CloseViewingPage</tspan></text></g></g></g></g><g class="node-container" transform="translate(122.5,921)"><g class="sc-jMakVo gLodWQ node state Succeed" data-testid="graph-Done" data-state-id="Done" data-state-type="Succeed"><g class="new-look-state-node "><rect x="-120" y="-26" width="240" height="52" rx="8" ry="8"/><g class="handle" transform="translate(-120,-26)" aria-hidden="true"><circle cx="7" cy="20" r="1.5"/><circle cx="12" cy="20" r="1.5"/><circle cx="7" cy="26" r="1.5"/><circle cx="12" cy="26" r="1.5"/><circle cx="7" cy="32" r="1.5"/><circle cx="12" cy="32" r="1.5"/></g><svg class="icon" x="-102" y="-18" width="36" height="36" viewBox="0 0 48 48" overflow="hidden" style="clip-path:inset(0 round 6px)"><title>Succeed state</title><rect fill="var(--color-background-container-header-irktp5, #ffffff)" x="0" y="0" width="48" height="48"/><use href="#icon-flow-succeed"/></svg><g class="text-lines" transform="translate(-58,-26)"><text transform="translate(0,18)" class="line1"><tspan xml:space="preserve" text-anchor="start">Succeed state</tspan></text><text transform="translate(0,36.5)" class="line2 label"><tspan xml:space="preserve" text-anchor="start">Done</tspan></text></g></g></g></g></g><g class="edges"><g class="sc-iMTnTL fiRwOv edge"><path id="state-Init:state-ReserveStreaming:normal" d="M495,131L495,133.91666666666666C495,136.83333333333334,495,142.66666666666666,495,148.5C495,154.33333333333334,495,160.16666666666666,495,163.08333333333334L495,166" marker-end="url(#arrowhead)" fill="none"/></g><g class="sc-iMTnTL fiRwOv edge"><path id="start:state-Init" d="M495,44L495,46.916666666666664C495,49.833333333333336,495,55.666666666666664,495,61.5C495,67.33333333333333,495,73.16666666666667,495,76.08333333333333L495,79" marker-end="url(#arrowhead)" fill="none"/></g><g class="sc-iMTnTL fiRwOv edge"><path id="state-ReserveStreaming:state-OpenViewingPage:normal" d="M448.67816091954023,218L443.4818007662836,220.91666666666666C438.2854406130268,223.83333333333334,427.8927203065134,229.66666666666666,422.69636015325676,235.5C417.5,241.33333333333334,417.5,247.16666666666666,417.5,250.08333333333334L417.5,253" marker-end="url(#arrowhead)" fill="none"/></g><g class="sc-iMTnTL fiRwOv edge"><path id="state-ReserveStreaming:state-RecordAbort:catch:0" d="M615,206.01342281879195L657.0833333333334,210.9278523489933C699.1666666666666,215.84228187919462,783.3333333333334,225.6711409395973,825.4166666666666,237.83557046979865C867.5,250,867.5,264.5,867.5,279C867.5,293.5,867.5,308,867.5,322.5C867.5,337,867.5,351.5,867.5,366C867.5,380.5,867.5,395,867.5,409.5C867.5,424,867.5,438.5,867.5,454.375C867.5,470.25,867.5,487.5,867.5,504.75C867.5,522,867.5,539.25,867.5,555.125C867.5,571,867.5,585.5,867.5,600C867.5,614.5,867.5,629,867.5,644.875C867.5,660.75,867.5,678,867.5,695.25C867.5,712.5,867.5,729.75,867.5,745.625C867.5,761.5,867.5,776,867.5,790.5C867.5,805,867.5,819.5,867.5,834C867.5,848.5,867.5,863,867.5,873.1666666666666C867.5,883.3333333333334,867.5,889.1666666666666,867.5,892.0833333333334L867.5,895" marker-end="url(#arrowhead)" fill="none"/><g data-testid="graph-ReserveStreaming-0" class="edge-label" transform="translate(825.4166666666666,237.83557046979865)"><rect x="-25" y="-8.25" width="50" height="16.5" class="sc-krNlru kRbCgY"/><text class="sc-hwdzOV kTlXpt label"><tspan xml:space="preserve" text-anchor="middle" alignment-baseline="central">Catch #1</tspan><title>Catch #1</title></text></g></g><g class="sc-iMTnTL fiRwOv edge"><path id="state-OpenViewingPage:state-NotifyPartners:normal" d="M371.17816091954023,305L365.9818007662836,307.9166666666667C360.7854406130268,310.8333333333333,350.3927203065134,316.6666666666667,345.19636015325676,322.5C340,328.3333333333333,340,334.1666666666667,340,337.0833333333333L340,340" marker-end="url(#arrowhead)" fill="none"/></g><g class="sc-iMTnTL fiRwOv edge"><path id="state-OpenViewingPage:state-RecordAbortThenRelease:catch:0" d="M537.5,296.6949152542373L566.6666666666666,300.9957627118644C595.8333333333334,305.29661016949154,654.1666666666666,313.89830508474574,683.3333333333334,325.4491525423729C712.5,337,712.5,351.5,712.5,366C712.5,380.5,712.5,395,712.5,409.5C712.5,424,712.5,438.5,712.5,454.375C712.5,470.25,712.5,487.5,712.5,504.75C712.5,522,712.5,539.25,712.5,555.125C712.5,571,712.5,585.5,712.5,600C712.5,614.5,712.5,629,712.5,644.875C712.5,660.75,712.5,678,712.5,690.9166666666666C712.5,703.8333333333334,712.5,712.4166666666666,712.5,716.7083333333334L712.5,721" marker-end="url(#arrowhead)" fill="none"/><g data-testid="graph-OpenViewingPage-0" class="edge-label" transform="translate(683.3333333333334,325.4491525423729)"><rect x="-25" y="-8.25" width="50" height="16.5" class="sc-krNlru kRbCgY"/><text class="sc-hwdzOV kTlXpt label"><tspan xml:space="preserve" text-anchor="middle" alignment-baseline="central">Catch #1</tspan><title>Catch #1</title></text></g></g><g class="sc-iMTnTL fiRwOv edge"><path id="state-NotifyPartners:state-AwaitGoDecision:normal" d="M293.67816091954023,392L288.4818007662835,394.9166666666667C283.2854406130268,397.8333333333333,272.8927203065134,403.6666666666667,267.6963601532567,409.5C262.5,415.3333333333333,262.5,421.1666666666667,262.5,424.0833333333333L262.5,427" marker-end="url(#arrowhead)" fill="none"/></g><g class="sc-iMTnTL fiRwOv edge"><path id="state-NotifyPartners:state-RecordAbortThenClose:catch:0" d="M460,390L476.25,393.25C492.5,396.5,525,403,541.25,413.5C557.5,424,557.5,438.5,557.5,454.375C557.5,470.25,557.5,487.5,557.5,504.75C557.5,522,557.5,539.25,557.5,555.125C557.5,571,557.5,585.5,557.5,595.6666666666666C557.5,605.8333333333334,557.5,611.6666666666666,557.5,614.5833333333334L557.5,617.5" marker-end="url(#arrowhead)" fill="none"/><g data-testid="graph-NotifyPartners-0" class="edge-label" transform="translate(541.25,413.5)"><rect x="-25" y="-8.25" width="50" height="16.5" class="sc-krNlru kRbCgY"/><text class="sc-hwdzOV kTlXpt label"><tspan xml:space="preserve" text-anchor="middle" alignment-baseline="central">Catch #1</tspan><title>Catch #1</title></text></g></g><g class="sc-iMTnTL fiRwOv edge"><path id="state-AwaitGoDecision:state-RecordCancellation:choiceRule:0" d="M192.16183574879227,479L180.55152979066023,483.2916666666667C168.94122383252818,487.5833333333333,145.7206119162641,496.1666666666667,134.11030595813205,504.75C122.5,513.3333333333334,122.5,521.9166666666666,122.5,526.2083333333334L122.5,530.5" marker-end="url(#arrowhead)" fill="none"/><g data-testid="graph-AwaitGoDecision-0" class="edge-label" transform="translate(134.11030595813205,504.75)"><rect x="-53" y="-8.25" width="106" height="16.5" class="sc-krNlru kRbCgY"/><text class="sc-hwdzOV kTlXpt label"><tspan xml:space="preserve" text-anchor="middle" alignment-baseline="central">{% $cancel = true %}</tspan><title>{% $cancel = true %}</title></text></g></g><g class="sc-iMTnTL fiRwOv edge"><path id="state-AwaitGoDecision:state-StartStreaming:choiceDefault" d="M332.83816425120773,479L344.44847020933975,483.2916666666667C356.05877616747176,487.5833333333333,379.2793880837359,496.1666666666667,390.8896940418679,509.0833333333333C402.5,522,402.5,539.25,402.5,555.125C402.5,571,402.5,585.5,402.5,600C402.5,614.5,402.5,629,402.5,644.875C402.5,660.75,402.5,678,402.5,695.25C402.5,712.5,402.5,729.75,402.5,745.625C402.5,761.5,402.5,776,402.5,790.5C402.5,805,402.5,819.5,402.5,834C402.5,848.5,402.5,863,402.5,873.1666666666666C402.5,883.3333333333334,402.5,889.1666666666666,402.5,892.0833333333334L402.5,895" marker-end="url(#arrowhead)" fill="none"/><g data-testid="graph-AwaitGoDecision-Default" class="edge-label" transform="translate(390.8896940418679,509.0833333333333)"><rect x="-22" y="-8.25" width="44" height="16.5" class="sc-krNlru kRbCgY"/><text class="sc-hwdzOV kTlXpt label"><tspan xml:space="preserve" text-anchor="middle" alignment-baseline="central">Default</tspan><title>Default</title></text></g></g><g class="sc-iMTnTL fiRwOv edge"><path id="state-StartStreaming:end:normal" d="M402.5,947L402.5,949.9166666666666C402.5,952.8333333333334,402.5,958.6666666666666,402.5,964.5C402.5,970.3333333333334,402.5,976.1666666666666,402.5,979.0833333333334L402.5,982" marker-end="url(#arrowhead)" fill="none"/></g><g class="sc-iMTnTL fiRwOv edge"><path id="state-RecordCancellation:state-CompensateNotifyPartners:normal" d="M122.5,582.5L122.5,585.4166666666666C122.5,588.3333333333334,122.5,594.1666666666666,122.5,600C122.5,605.8333333333334,122.5,611.6666666666666,122.5,614.5833333333334L122.5,617.5" marker-end="url(#arrowhead)" fill="none"/></g><g class="sc-iMTnTL fiRwOv edge"><path id="state-RecordAbort:end:normal" d="M867.5,947L867.5,949.9166666666666C867.5,952.8333333333334,867.5,958.6666666666666,793.6535087509296,967.8563148480393C719.8070175018593,977.0459630294121,572.1140350037184,989.5919260588239,498.267543754648,995.8649075735299L424.42105250557756,1002.1378890882359" marker-end="url(#arrowhead)" fill="none"/></g><g class="sc-iMTnTL fiRwOv edge"><path id="state-RecordAbortThenRelease:state-ReleaseStreaming:normal" d="M712.5,773L712.5,775.9166666666666C712.5,778.8333333333334,712.5,784.6666666666666,634.1666666666666,793.358757062147C555.8333333333334,802.0508474576271,399.1666666666667,813.6016949152541,320.8333333333333,819.3771186440678L242.5,825.1525423728814" marker-end="url(#arrowhead)" fill="none"/></g><g class="sc-iMTnTL fiRwOv edge"><path id="state-RecordAbortThenClose:state-CloseViewingPage:normal" d="M557.5,669.5L557.5,673.7916666666666C557.5,678.0833333333334,557.5,686.6666666666666,505,697.2040229885057C452.5,707.7413793103448,347.5,720.2327586206897,295,726.4784482758622L242.5,732.7241379310345" marker-end="url(#arrowhead)" fill="none"/></g><g class="sc-iMTnTL fiRwOv edge"><path id="state-CompensateNotifyPartners:state-CloseViewingPage:normal" d="M122.5,669.5L122.5,673.7916666666666C122.5,678.0833333333334,122.5,686.6666666666666,122.5,695.25C122.5,703.8333333333334,122.5,712.4166666666666,122.5,716.7083333333334L122.5,721" marker-end="url(#arrowhead)" fill="none"/></g><g class="sc-iMTnTL fiRwOv edge"><path id="state-CloseViewingPage:state-ReleaseStreaming:normal" d="M122.5,773L122.5,775.9166666666666C122.5,778.8333333333334,122.5,784.6666666666666,122.5,790.5C122.5,796.3333333333334,122.5,802.1666666666666,122.5,805.0833333333334L122.5,808" marker-end="url(#arrowhead)" fill="none"/></g><g class="sc-iMTnTL fiRwOv edge"><path id="state-ReleaseStreaming:state-Done:normal" d="M122.5,860L122.5,862.9166666666666C122.5,865.8333333333334,122.5,871.6666666666666,122.5,877.5C122.5,883.3333333333334,122.5,889.1666666666666,122.5,892.0833333333334L122.5,895" marker-end="url(#arrowhead)" fill="none"/></g><g class="sc-iMTnTL fiRwOv edge"><path id="state-Done:end:normal" d="M122.5,947L122.5,949.9166666666666C122.5,952.8333333333334,122.5,958.6666666666666,165.5359497382649,967.6544762428385C208.57189947652978,976.6422858190105,294.64379895305956,988.784571638021,337.67974869132445,994.8557145475262L380.71569842958934,1000.9268574570314" marker-end="url(#arrowhead)" fill="none"/></g></g><defs><marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto" class="sc-bDumWk enMlgo"><polygon points="0 0, 8 3, 0 6"/></marker><marker id="highlighted-arrowhead" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto" class="sc-bDumWk enMlgo"><polygon points="0 0, 6 2, 0 4"/></marker><marker id="error-arrowhead" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto" class="sc-bDumWk enMlgo"><polygon points="0 0, 6 2, 0 4"/></marker><marker id="large-arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" class="sc-bDumWk enMlgo"><polygon points="0 0, 10 4, 0 8"/></marker><marker id="large-highlighted-arrowhead" markerWidth="5.5" markerHeight="4" refX="4.5" refY="2" orient="auto" class="sc-bDumWk enMlgo"><polygon points="0 0, 5.5 2, 0 4"/></marker><marker id="large-error-arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" class="sc-bDumWk enMlgo"><polygon points="0 0, 10 4, 0 8"/></marker><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-orange"><stop stop-color="#C8511B" offset="0%"/><stop stop-color="#FF9900" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-turquoise"><stop stop-color="#055F4E" offset="0%"/><stop stop-color="#56C0A7" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-blue"><stop stop-color="#2E27AD" offset="0%"/><stop stop-color="#527FFF" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-pink"><stop stop-color="#B0084D" offset="0%"/><stop stop-color="#FF4F8B" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-red"><stop stop-color="#BD0816" offset="0%"/><stop stop-color="#FF5252" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-green"><stop stop-color="#1B660F" offset="0%"/><stop stop-color="#6CAE3E" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-purple"><stop stop-color="#4D27A8" offset="0%"/><stop stop-color="#A166FF" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-grey"><stop stop-color="#DCDCDC" offset="0%"/><stop stop-color="#F6F5F7" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-light-pink"><stop stop-color="#DD344C" offset="0%"/><stop stop-color="#DD344C" offset="100%"/></linearGradient>,<linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-ag"><stop stop-color="#BC1356" offset="0%"/><stop stop-color="#F34482" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-athena"><stop stop-color="#5930B5" offset="0%"/><stop stop-color="#945DF2" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-emr"><stop stop-color="#5930B5" offset="0%"/><stop stop-color="#945DF2" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-glue"><stop stop-color="#5930B5" offset="0%"/><stop stop-color="#945DF2" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-sns"><stop stop-color="#BC1356" offset="0%"/><stop stop-color="#F34482" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-states"><stop stop-color="#BC1356" offset="0%"/><stop stop-color="#F34482" offset="100%"/></linearGradient><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="gradient-generic"><stop stop-color="#ccc" offset="0%"/><stop stop-color="#ddd" offset="100%"/></linearGradient><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" id="icon-flow-pass"><g transform="translate(10.500000, 8.750000)" fill="#0073BB" fill-rule="nonzero"><path d="M13.8217363,31.2803301 L13.7368454,31.3532508 L13.7368454,31.3532508 L13.6534426,31.407053 L13.6534426,31.407053 L13.6052878,31.4313839 L13.6052878,31.4313839 L13.5081671,31.4681458 L13.5081671,31.4681458 L13.4513711,31.4828395 L13.4513711,31.4828395 L13.3846755,31.4942127 L13.3846755,31.4942127 L13.3412428,31.498357 L13.3412428,31.498357 L13.241495,31.498357 L13.241495,31.498357 L13.1802045,31.4917588 L13.1802045,31.4917588 L13.1314644,31.4828361 L13.1314644,31.4828361 L13.0652921,31.4652652 L12.9776235,31.4314294 L12.9776235,31.4314294 L12.9293782,31.4070608 L12.9293782,31.4070608 L12.8294824,31.3409596 L12.7610762,31.2803301 L12.7610762,31.2803301 L8.26107616,26.7803301 C7.96818295,26.4874369 7.96818295,26.0125631 8.26107616,25.7196699 C8.52734273,25.4534034 8.94400641,25.4291973 9.2376179,25.6470518 L9.32173634,25.7196699 L12.5814063,28.979 L12.581,19.7495522 L3.5,19.75 C1.6314366,19.75 0.104873551,18.2857224 0.00517886273,16.4420352 L0,16.25 L0,12.25 C0,10.3814366 1.4642776,8.85487355 3.3079648,8.75517886 L3.5,8.75 L11.686,8.74955216 L11.686,10.2495522 L3.5,10.25 C2.4456382,10.25 1.58183488,11.0658778 1.50548574,12.1007377 L1.5,12.25 L1.5,16.25 C1.5,17.3043618 2.31587779,18.1681651 3.35073766,18.2445143 L3.5,18.25 L22.5,18.25 C23.5543618,18.25 24.4181651,17.4341222 24.4945143,16.3992623 L24.5,16.25 L24.5,12.25 C24.5,11.1956382 23.6841222,10.3318349 22.6492623,10.2554857 L22.5,10.25 L15.686,10.2495522 L15.686,8.74955216 L22.5,8.75 C24.3685634,8.75 25.8951264,10.2142776 25.9948211,12.0579648 L26,12.25 L26,16.25 C26,18.1185634 24.5357224,19.6451264 22.6920352,19.7448211 L22.5,19.75 L14.081,19.7495522 L14.0814063,28.899 L17.2610762,25.7196699 L17.3451946,25.6470518 C17.6388061,25.4291973 18.0554698,25.4534034 18.3217363,25.7196699 C18.5880029,25.9859365 18.6122089,26.4026002 18.3943545,26.6962117 L18.3217363,26.7803301 L13.8217363,31.2803301 Z" fill="false"/><polygon points="14.0818291 0 14.0818291 14.5 12.5818291 14.5 12.5818291 0" fill="false"/></g></g><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" id="icon-flow-choice"><g transform="translate(9.252020, 8.729185)" fill="#0073BB" fill-rule="nonzero"><path d="M13.7176503,0.219669914 C13.9839168,-0.0465966484 14.4005805,-0.0708026996 14.694192,0.147051761 L14.7783104,0.219669914 L26.7991257,12.2404852 C27.0653923,12.5067518 27.0895983,12.9234154 26.8717439,13.2170269 L26.7991257,13.3011454 L19.848,20.251 L27.063,27.58 L27.0635443,24.4725437 C27.0635443,24.0583302 27.3993308,23.7225437 27.8135443,23.7225437 C28.1901021,23.7225437 28.5018441,24.0000532 28.5554124,24.3617142 L28.5635443,24.4725437 L28.5635443,29.4222912 C28.5635443,29.4735748 28.5583971,29.5236562 28.5485912,29.5720469 L28.5290567,29.6477745 L28.4912259,29.7440224 L28.4674556,29.7898473 L28.4399848,29.8348433 L28.3922808,29.8993609 L28.3266417,29.9693147 L28.2903734,30.0012261 L28.2103598,30.0588356 L28.1372883,30.0990133 L28.0408973,30.1372113 L27.9243738,30.1641593 C27.8841362,30.1698129 27.8491297,30.1722912 27.8135443,30.1722912 L22.8637969,30.1722912 C22.4495833,30.1722912 22.1137969,29.8365048 22.1137969,29.4222912 C22.1137969,29.0457334 22.3913063,28.7339914 22.7529674,28.6804231 L22.8637969,28.6722912 L26.032,28.672 L18.787,21.312 L14.7783104,25.3219606 C14.5120439,25.5882272 14.0953802,25.6124333 13.8017687,25.3945788 L13.7176503,25.3219606 L9.63,21.234 L2.386,28.671 L5.69974747,28.6722912 L5.81057697,28.6804231 C6.17223802,28.7339914 6.44974747,29.0457334 6.44974747,29.4222912 C6.44974747,29.801987 6.16759359,30.1157822 5.80151803,30.1654446 L5.69974747,30.1722912 L0.75,30.1722912 L0.645175107,30.1650238 L0.571316134,30.150876 L0.491748953,30.1266437 L0.399838514,30.0857012 L0.323957521,30.0396165 L0.243169757,29.975129 L0.170912131,29.8989347 L0.109961584,29.8134582 L0.0656949991,29.7297074 L0.0297396696,29.6320944 L0.0076057584,29.5294944 L6.67910172e-13,29.4222912 L6.67910172e-13,24.4725437 L0.00813192572,24.3617142 C0.0617002376,24.0000532 0.373442216,23.7225437 0.75,23.7225437 C1.12969577,23.7225437 1.44349096,24.0046976 1.49315338,24.3707732 L1.5,24.4725437 L1.499,27.433 L8.569,20.174 L1.69683498,13.3011454 C1.43056842,13.0348788 1.40636237,12.6182151 1.62421683,12.3246036 L1.69683498,12.2404852 L13.7176503,0.219669914 Z M14.3527697,23.728356 L25.2081355,12.7708153 L14.2479803,1.81066017 L3.28782524,12.7708153 L9.616,19.099 L14.3527697,23.728356 Z" fill="false"/><path d="M15.2319803,14.0468153 L15.2319803,13.2668153 C16.0033137,12.8508153 16.5579803,12.4218153 16.8959803,11.9798153 C17.2339803,11.5378153 17.4029803,11.0178153 17.4029803,10.4198153 C17.4029803,9.65714861 17.151647,9.06131528 16.6489803,8.63231528 C16.1463137,8.20331528 15.448647,7.98881528 14.5559803,7.98881528 C13.6979803,7.98881528 12.874647,8.19248195 12.0859803,8.59981528 L12.0859803,8.59981528 L12.0859803,10.3288153 C12.8313137,9.98214861 13.4943137,9.80881528 14.0749803,9.80881528 C14.395647,9.80881528 14.6404803,9.87814861 14.8094803,10.0168153 C14.9784803,10.1554819 15.0629803,10.3591486 15.0629803,10.6278153 C15.0629803,10.9138153 14.9763137,11.1651486 14.8029803,11.3818153 C14.629647,11.5984819 14.343647,11.8151486 13.9449803,12.0318153 L13.9449803,12.0318153 L13.1909803,12.4348153 L13.3339803,14.0468153 L15.2319803,14.0468153 Z M14.3089803,17.4398153 C14.7249803,17.4398153 15.0608137,17.3141486 15.3164803,17.0628153 C15.572147,16.8114819 15.6999803,16.4821486 15.6999803,16.0748153 C15.6999803,15.6674819 15.572147,15.3381486 15.3164803,15.0868153 C15.0608137,14.8354819 14.7249803,14.7098153 14.3089803,14.7098153 C13.8929803,14.7098153 13.557147,14.8354819 13.3014803,15.0868153 C13.0458137,15.3381486 12.9179803,15.6674819 12.9179803,16.0748153 C12.9179803,16.4821486 13.0458137,16.8114819 13.3014803,17.0628153 C13.557147,17.3141486 13.8929803,17.4398153 14.3089803,17.4398153 Z" fill="false"/></g></g><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" id="icon-flow-succeed"><g transform="translate(11.250000, 12.250000)" fill="#2AB512" fill-rule="nonzero"><path d="M12.75,0 C5.70836944,0 0,5.70836944 0,12.75 C0,19.7916306 5.70836944,25.5 12.75,25.5 C19.7916306,25.5 25.5,19.7916306 25.5,12.75 C25.5,5.70836944 19.7916306,0 12.75,0 Z M12.75,1.5 C18.9632034,1.5 24,6.53679656 24,12.75 C24,18.9632034 18.9632034,24 12.75,24 C6.53679656,24 1.5,18.9632034 1.5,12.75 C1.5,6.53679656 6.53679656,1.5 12.75,1.5 Z"/><path d="M17.482151,9.3912361 C17.7750442,9.09834288 18.2499179,9.09834288 18.5428111,9.3912361 C18.8090777,9.65750266 18.8332838,10.0741663 18.6154293,10.3677778 L18.5428111,10.4518963 L11.1581958,17.8365117 C10.9013427,18.0933647 10.5030038,18.1258243 10.2104294,17.9293959 L10.1171609,17.8554362 L6.98253225,14.9408143 C6.67918728,14.6587599 6.66192789,14.1841999 6.94398232,13.8808549 C7.20039544,13.6050868 7.61590405,13.565753 7.91723953,13.7727921 L8.0039417,13.842305 L10.608,16.264 L17.482151,9.3912361 Z"/></g></g><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" id="icon-service-lam"><polygon fill="url(#gradient-orange)" fill-rule="nonzero" points="0 0 48 0 48 48 0 48"/><g transform="translate(11, 10)" fill="#FFFFFF"><path d="M26.5889213,27.8937088 L19.6925948,27.8937088 C19.4772752,27.8931074 19.2813916,27.7706914 19.1888047,27.578869 L9.43766764,7.45673404 L5.31218659,7.45673404 C5.00303594,7.45673404 4.75241983,7.20943823 4.75241983,6.90438337 L4.75241983,0.828526005 C4.75241983,0.523471153 5.00303594,0.276175335 5.31218659,0.276175335 L13.9325948,0.276175335 C14.1479143,0.276776788 14.3437979,0.399192787 14.4363848,0.591015217 L24.1427405,20.7131501 L26.5889213,20.7131501 C26.8980719,20.7131501 27.148688,20.9604459 27.148688,21.2655008 L27.148688,27.3413582 C27.148688,27.646413 26.8980719,27.8937088 26.5889213,27.8937088 Z M20.0452478,26.7890075 L26.0291545,26.7890075 L26.0291545,21.8178515 L23.7900875,21.8178515 C23.5747679,21.81725 23.3788843,21.694834 23.2862974,21.5030116 L13.5799417,1.38087667 L5.87755102,1.38087667 L5.87755102,6.3520327 L9.79591837,6.3520327 C10.0112379,6.35263416 10.2071215,6.47505016 10.2997085,6.66687259 L20.0452478,26.7890075 Z"/><path d="M8.10542274,27.8937099 L0.82845481,27.8937099 C0.635054571,27.8940907 0.455155006,27.7959347 0.352653061,27.634104 C0.243858391,27.4681848 0.233185428,27.2575536 0.324664723,27.0817533 L7.93749271,11.3894708 C8.03007964,11.1976484 8.22596323,11.0752324 8.4412828,11.0746298 L8.4412828,11.0746298 C8.65533487,11.0742082 8.85089022,11.1942751 8.94507289,11.3839473 L12.5891545,18.7799228 C12.6634688,18.931712 12.6634688,19.1086786 12.5891545,19.2604679 L8.6148105,27.5457279 C8.53147526,27.7523199 8.33072312,27.8894609 8.10542274,27.8937099 L8.10542274,27.8937099 Z M1.72408163,26.7890075 L7.75276968,26.7890075 L11.4640233,19.0560981 L8.44688047,12.8973881 L1.72408163,26.7890075 Z"/></g></g></defs></g></svg>
